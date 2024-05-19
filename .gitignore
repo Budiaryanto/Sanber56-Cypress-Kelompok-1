@@ -1,7 +1,3 @@
-<<<<<<< HEAD
 node_modules
 cypress/e2e/1-getting-started
 cypress/e2e/2-advanced-examples
-=======
-node_modules
->>>>>>> 1a0493dde312cf985a66a15e73c5212580e4669c
