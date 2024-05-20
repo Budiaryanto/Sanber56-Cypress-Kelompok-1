@@ -51,6 +51,14 @@ Cypress.Commands.add('RadioButton', (element) => {
     cy.get(element).click().should('be.checked')
 })
 
+
+//--Custom Command Budi--//
+Cypress.Commands.add('loginAccountBudi', (userEmail, userPassword) => { 
+    cy.get('.panel > .header > .authorization-link > a').click()
+    cy.get('#email').type(userEmail)
+    cy.get('#pass').type(userPassword)
+ })
+
 /////////////////////////////////////////////////////////////////////
 
 // -- This is a child command --
