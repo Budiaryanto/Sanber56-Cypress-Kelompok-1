@@ -57,7 +57,18 @@ Cypress.Commands.add('loginAccountBudi', (userEmail, userPassword) => {
     cy.get('.panel > .header > .authorization-link > a').click()
     cy.get('#email').type(userEmail)
     cy.get('#pass').type(userPassword)
+    cy.get('#send2').click()
  })
+
+ Cypress.Commands.add('EditVerifySuccess', (elemen,textnya) => {
+    cy.get(elemen)
+    .should('contain.text',textnya)
+})
+
+Cypress.Commands.add('EditVerifyFailed', (elemen,textnya) => {
+    cy.get(elemen)
+    .should(textnya)
+})
 
 /////////////////////////////////////////////////////////////////////
 

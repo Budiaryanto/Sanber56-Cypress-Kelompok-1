@@ -23,8 +23,10 @@ describe('template spec', () => {
       cy.clearCookies()
       cy.clearLocalStorage()
       cy.visit('https://magento.softwaretestingboard.com/')
-      cy.loginAccountBudi('arihuang2@gmail.com', 'Password@')
-      cy.get('#send2').click()
+      cy.fixture('DataUser4.json').then((users) => {
+        const userData = users[1]
+        cy.loginAccountBudi(userData.email, userData.password)
+      })
     })
     it('Success Edit User Data', () => {
       cy.visit('https://magento.softwaretestingboard.com/customer/account/')
@@ -39,7 +41,8 @@ describe('template spec', () => {
       cy.get('#zip').clear().type('00111')
       cy.get('#country').select('Panama')
       cy.get('#form-validate > .actions-toolbar > div.primary > .action > span').click()
-      cy.get('.message-success > div').should('contain.text','You saved the address')
+      cy.EditVerifySuccess('.message-success > div', 'You saved the address')
+    //   cy.get('.message-success > div').should('contain.text','You saved the address')
     })
   
     it('Failed Edit User Data', () => {
@@ -47,6 +50,7 @@ describe('template spec', () => {
       cy.get('.box-billing-address > .box-actions > .action > span').click()
       cy.get('#firstname').clear()
       cy.get('#form-validate > .actions-toolbar > div.primary > .action > span').click()
-      cy.get('.message-error').should('not.be.null')
+      cy.EditVerifyFailed('.message-error', 'not.be.null')
+    //   cy.get('.message-error').should('not.be.null')
     })
   })
