@@ -50,6 +50,19 @@ Cypress.Commands.add('AddtoCart', (element) => {
 Cypress.Commands.add('RadioButton', (element) => {
     cy.get(element).click().should('be.checked')
 })
+//
+
+//Custom command Jannah
+Cypress.Commands.add('LoginDashboard', (UrlLogin) => {
+    cy.log('Sign in before Choose products and Update Shopping Cart')
+        cy.visit(UrlLogin)
+        cy.reload(true)
+})
+Cypress.Commands.add('LoginUser5', (useremail,userpassword) => {
+    cy.get('#email').clear().type(useremail)
+    cy.get('#pass').clear().type(userpassword)
+    cy.get('.login-container > .block-customer-login > .block-content > #login-form > .fieldset > .actions-toolbar > div.primary > #send2 > span').click()
+})
 
 /////////////////////////////////////////////////////////////////////
 
