@@ -1,3 +1,23 @@
+function GenerateRandomString() {
+    const randomString = Math.random().toString(36).substring(2,10)
+    return randomString
+    }
+    let randomString = GenerateRandomString()
+  
+    function generateRandomNumber(min, max) {
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      const number = "08" + randomNumber
+      return number
+    }
+    let randomNumber = generateRandomNumber(1000000000, 9999999999)
+  
+    function generateRandomNumberPostalCode(min = 5, max = 6) {
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      const number = randomNumber
+      return number
+    }
+    let randomNumberPostalCode = generateRandomNumberPostalCode(10000, 99999)
+
 describe('template spec', () => {
     beforeEach(() => {
       cy.clearCookies()
