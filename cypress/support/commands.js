@@ -62,7 +62,7 @@ Cypress.Commands.add('loginAccountBudi', (userEmail, userPassword) => {
 
  Cypress.Commands.add('EditVerifySuccess', (elemen,textnya) => {
     cy.get(elemen)
-    .should('contain.text',textnya)
+    .should('contain.text', textnya)
 })
 
 Cypress.Commands.add('EditVerifyFailed', (elemen,textnya) => {

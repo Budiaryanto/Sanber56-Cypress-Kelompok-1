@@ -32,5 +32,16 @@ class ProductPage {
     Next = '.fotorama__arr--next'
     Previous = '.fotorama__arr--prev'
     View_Details = ':nth-child(7) > .secondary > .action > span'
+
+
+    //--Budi--//--Edit User--//
+    loginDashboard = 'https://magento.softwaretestingboard.com/'
+    editPage  = 'https://magento.softwaretestingboard.com/customer/account/'
+    openEditUserPage = '.box-billing-address > .box-actions > .action > span'
+    firstName = '#firstname'
+    saveButton = '#form-validate > .actions-toolbar > div.primary > .action > span'
+    successMessage = 'You saved the address'
+    errorMessage = 'not.be.null'
+    
 }
 export default new ProductPage()

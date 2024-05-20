@@ -1,8 +1,17 @@
+import ProductPage from '../../support/PageObjectModel/POMuser4'
+
 function GenerateRandomString() {
     const randomString = Math.random().toString(36).substring(2,10)
     return randomString
     }
     let randomString = GenerateRandomString()
+
+    function GenerateRandomProvince() {
+        const randomString = Math.random().toString(36).substring(2,10)
+        const randomProvince = "A" + randomString
+        return randomProvince
+        }
+        let randomStringProvince = GenerateRandomProvince()
   
     function generateRandomNumber(min, max) {
       const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -20,37 +29,35 @@ function GenerateRandomString() {
 
 describe('template spec', () => {
     beforeEach(() => {
-      cy.clearCookies()
-      cy.clearLocalStorage()
-      cy.visit('https://magento.softwaretestingboard.com/')
+    //   cy.clearCookies()
+    //   cy.clearLocalStorage()
+      cy.visit(ProductPage.loginDashboard)
       cy.fixture('DataUser4.json').then((users) => {
         const userData = users[1]
         cy.loginAccountBudi(userData.email, userData.password)
       })
     })
     it('Success Edit User Data', () => {
-      cy.visit('https://magento.softwaretestingboard.com/customer/account/')
-      cy.get('.box-billing-address > .box-actions > .action > span').click()
-      cy.get('#firstname').clear().type('Budi')
-      cy.get('#lastname').clear().type('Haryanto')
-      cy.get('#company').clear().type('Sanber')
-      cy.get('#telephone').clear().type("08123456")
-      cy.get('#street_1').clear().type('Gajah Mada')
-      cy.get('#city').clear().type('Jakarta')
-      cy.get('#region').clear().type('Alaska')
-      cy.get('#zip').clear().type('00111')
+      cy.visit(ProductPage.editPage)
+      cy.get(ProductPage.openEditUserPage).click()
+      cy.get(ProductPage.firstName).clear().type(randomString)
+      cy.get('#lastname').clear().type(randomString)
+      cy.get('#company').clear().type(randomString)
+      cy.get('#telephone').clear().type(randomNumber)
+      cy.get('#street_1').clear().type(randomString)
+      cy.get('#city').clear().type(randomString)
+      cy.get('#region').clear().type(randomStringProvince)
+      cy.get('#zip').clear().type(randomNumberPostalCode)
       cy.get('#country').select('Panama')
-      cy.get('#form-validate > .actions-toolbar > div.primary > .action > span').click()
-      cy.EditVerifySuccess('.message-success > div', 'You saved the address')
-    //   cy.get('.message-success > div').should('contain.text','You saved the address')
+      cy.get(ProductPage.saveButton).click()
+      cy.EditVerifySuccess('.message-success > div', ProductPage.successMessage )
     })
   
     it('Failed Edit User Data', () => {
-      cy.visit('https://magento.softwaretestingboard.com/customer/account/')
-      cy.get('.box-billing-address > .box-actions > .action > span').click()
-      cy.get('#firstname').clear()
-      cy.get('#form-validate > .actions-toolbar > div.primary > .action > span').click()
-      cy.EditVerifyFailed('.message-error', 'not.be.null')
-    //   cy.get('.message-error').should('not.be.null')
+      cy.visit(ProductPage.editPage)
+      cy.get(ProductPage.openEditUserPage).click()
+      cy.get(ProductPage.firstName).clear()
+      cy.get(ProductPage.saveButton).click()
+      cy.EditVerifyFailed('.message-error',ProductPage.errorMessage)
     })
   })
