@@ -12,3 +12,5 @@ Pembagian Tugas :
 3. My Account > Edit Account Information & Edit Address = Budi Haryanto,
 4. Choose products and Update Shopping Cart = Fajra Husniyah,
 5. Proceed to Checkout = Adil Abdul Hakim.
+
+Semangat guys!
