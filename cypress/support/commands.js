@@ -10,6 +10,15 @@
 //
 //
 // -- This is a parent command --
+
+// Cypress.Commands.loginPage
+Cypress.Commands.add('loginLuma', (emailUser,passUser) => {
+    cy.get('.panel > .header > .authorization-link > a').click()
+    cy.get('.login-container > .block-customer-login > .block-title > #block-customer-login-heading').should('be.visible')
+    cy.get('#email').type(emailUser)
+    cy.get('.login-container > .block-customer-login > .block-content > #login-form > .fieldset > .password > .control > #pass').type(passUser)
+    cy.get('.login-container > .block-customer-login > .block-content > #login-form > .fieldset > .actions-toolbar > div.primary > #send2').click()    
+=======
 // Cypress.Commands.add('login', (email, password) => { ... })
 
 //Custom command Fajra
@@ -49,6 +58,7 @@ Cypress.Commands.add('AddtoCart', (element) => {
 
 Cypress.Commands.add('RadioButton', (element) => {
     cy.get(element).click().should('be.checked')
+
 })
 //
 
