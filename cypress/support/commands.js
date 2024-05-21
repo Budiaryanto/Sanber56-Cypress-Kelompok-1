@@ -10,7 +10,14 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+// Cypress.Commands.loginPage
+Cypress.Commands.add('loginLuma', (emailUser,passUser) => {
+    cy.get('.panel > .header > .authorization-link > a').click()
+    cy.get('.login-container > .block-customer-login > .block-title > #block-customer-login-heading').should('be.visible')
+    cy.get('#email').type(emailUser)
+    cy.get('.login-container > .block-customer-login > .block-content > #login-form > .fieldset > .password > .control > #pass').type(passUser)
+    cy.get('.login-container > .block-customer-login > .block-content > #login-form > .fieldset > .actions-toolbar > div.primary > #send2').click()    
+})
 //
 //
 // -- This is a child command --
