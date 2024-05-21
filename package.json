@@ -1,5 +1,14 @@
 {
   "devDependencies": {
     "cypress": "^13.9.0"
-  }
+  },
+  "name": "sanber56-cypress-kelompok-1",
+  "description": "",
+  "version": "1.0.0",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }
