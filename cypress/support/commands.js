@@ -18,10 +18,10 @@ Cypress.Commands.add('loginLuma', (emailUser,passUser) => {
     cy.get('#email').type(emailUser)
     cy.get('.login-container > .block-customer-login > .block-content > #login-form > .fieldset > .password > .control > #pass').type(passUser)
     cy.get('.login-container > .block-customer-login > .block-content > #login-form > .fieldset > .actions-toolbar > div.primary > #send2').click()    
-=======
+})
 // Cypress.Commands.add('login', (email, password) => { ... })
 
-//Custom command Fajra
+//Custom command Add&UpdateProduct
 Cypress.Commands.add('LoginDashboard', (UrlLogin) => {
     cy.log('Sign in before Choose products and Update Shopping Cart')
         cy.visit(UrlLogin)
@@ -61,18 +61,6 @@ Cypress.Commands.add('RadioButton', (element) => {
 
 })
 //
-
-//Custom command Jannah
-Cypress.Commands.add('LoginDashboard', (UrlLogin) => {
-    cy.log('Sign in before Choose products and Update Shopping Cart')
-        cy.visit(UrlLogin)
-        cy.reload(true)
-})
-Cypress.Commands.add('LoginUser5', (useremail,userpassword) => {
-    cy.get('#email').clear().type(useremail)
-    cy.get('#pass').clear().type(userpassword)
-    cy.get('.login-container > .block-customer-login > .block-content > #login-form > .fieldset > .actions-toolbar > div.primary > #send2 > span').click()
-})
 
 /////////////////////////////////////////////////////////////////////
 
